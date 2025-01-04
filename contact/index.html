@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Fuze - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-right">
+            <a href="/index.html">
+                <img class="img-logo" src="/logo.png" alt="Edu Fuze Logo">
+            </a>
+            <a href="/index.html">
+                <h1>Edu Fuze</h1>
+            </a>
+        </div>
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-left" id="navbar-links">
+            <ul class="nav-link">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/products/index.html">Products</a></li>
+                <li><a href="/blogs/index.html">Blogs</a></li>
+                <li><a href="/about/index.html">About us</a></li>
+                <li><a href="/contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Our Information</h2>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 197 karmichael Rd, Dhaka, Bangladesh</li>
+                    <li><i class="fas fa-phone-alt"></i> +880 1305-054868</li>
+                    <li><i class="fas fa-envelope"></i> info.edufuze@gmail.com</li>
+                    <li><i class="fas fa-globe"></i> www.edufuze.com</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>Edu Fuze</h3>
+                    <p>Empowering students with resources and tools for success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about/index.html">About Us</a></li>
+                        <li><a href="/products/index.html">Products</a></li>
+                        <li><a href="index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/index.html">Cyber Security</a></li>
+                        <li><a href="/index.html">Web development</a></li>
+                        <li><a href="/index.html">Machine Learning</a></li>
+                        <li><a href="/index.html">Mobile App Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61565960182783"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@edu-fuze"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Edu Fuze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK and Script -->
+    <script type="module">
+        // Import Firebase Libraries
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDK1qAbLD7BiwY-FK7qTLrw4S8P4F_Ap44",
+            authDomain: "eduf-uze.firebaseapp.com",
+            projectId: "eduf-uze",
+            storageBucket: "eduf-uze.appspot.com",
+            messagingSenderId: "912121281071",
+            appId: "1:912121281071:web:410fe432d5603047f024da",
+            measurementId: "G-S25XYSY3PJ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Handle Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                await addDoc(collection(db, 'messages'), {
+                    name,
+                    email,
+                    phone,
+                    message,
+                    timestamp: serverTimestamp()
+                });
+                alert('Message sent successfully!');
+                contactForm.reset();
+            } catch (error) {
+                alert('Error sending message: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

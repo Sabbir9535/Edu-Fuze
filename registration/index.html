@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Fuze</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-right">
+            <a href="/index.html"><img class="img-logo" src="/logo.png" alt="Edu Fuze Logo"></a>
+            <a href="/index.html"><h1>Edu Fuze</h1></a>
+        </div>
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-left" id="navbar-links">
+            <ul class="nav-link">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/products/">Products</a></li>
+                <li><a href="/blogs/index.html">Blogs</a></li>
+                <li><a href="/about/index.html">About us</a></li>
+                <li><a href="/contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 id="shows">Registration Form</h1>
+        <form id="registration-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="whatsapp">WhatsApp Number:</label>
+          <input type="text" id="whatsapp" name="whatsapp" required>
+          
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required>
+          
+          <label for="reason">Why do you want to learn web development?</label>
+          <textarea id="reason" name="reason" required></textarea>
+          
+          <button id="submits" type="submit">Submit</button>
+          <div id="confirmation-message" class="hidden">Registration successful!</div>
+        </form>
+      </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>Edu Fuze</h3>
+                    <p>Empowering students with resources and tools for success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about/index.html">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="">Cyber Security</a></li>
+                        <li><a href="#">Web development</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Mobile App Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61565960182783"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@edu-fuze"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Edu Fuze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="/common.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

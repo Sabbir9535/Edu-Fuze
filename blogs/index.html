@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Fuze</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-right">
+            <a href="/index.html"><img class="img-logo" src="/logo.png" alt="Edu Fuze Logo"></a>
+            <a href="/index.html"><h1>Edu Fuze</h1></a>
+        </div>
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-left" id="navbar-links">
+            <ul class="nav-link">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/products/index.html">Products</a></li>
+                <li><a href="index.html">Blogs</a></li>
+                <li><a href="/about/index.html">About us</a></li>
+                <li><a href="/contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+        <div class="blog-container">
+            <h1>টপ ৫ প্রযুক্তি নিয়ে ব্লগ</h1>
+            <div class="blog-list">
+                <div class="blog-item" onclick="showBlog(0)">
+                    <img src="img/web.jpg" alt="JavaScript" class="blog-img">
+                    <h2>The Art and Science of Web Development: A Comprehensive Guide</h2>
+                    <p>Web development is a fascinating blend of technology, creativity, and innovation that shapes how we interact with the digital world. It is the backbone of the internet, providing the structure and functionality for websites and web applications. Let’s embark on a journey to understand the depth of web development, its significance, and its ever-evolving nature.   <span style="color: blueviolet;">see more...</span></p>
+                </div>
+                <div class="blog-item" onclick="showBlog(1)">
+                    <img src="img/app.jpg" alt="Python" class="blog-img">
+                    <h2>Unlocking the World of Mobile App Development</h2>
+                    <p>Mobile app development is a rapidly evolving field that combines creativity, technology, and user-centered design to deliver powerful solutions directly into the hands of users. From enhancing daily productivity to providing entertainment, mobile applications have transformed how we interact with technology. In this blog, we’ll explore the intricacies of mobile app development, its challenges, and its potential to shape the future. <span style="color: blueviolet;">see more...</span></p>
+                </div>
+                <div class="blog-item" onclick="showBlog(2)">
+                    <img src="img/cyber.jpg" alt="AI" class="blog-img">
+                    <h2>Understanding Cybersecurity: Safeguarding the Digital Era</h2>
+                    <p>Cybersecurity is an essential aspect of the digital age, safeguarding sensitive information, systems, and networks from cyber threats. In a world where individuals and organizations rely heavily on technology, the importance of cybersecurity cannot be overstated. It encompasses a wide range of practices, tools, and methodologies designed to protect against unauthorized access, data breaches, and cyberattacks that can disrupt operations and compromise personal and organizational privacy. <span style="color: blueviolet;">see more...</span></p>
+                </div>
+                <div class="blog-item" onclick="showBlog(3)">
+                    <img src="img/mechine.jpg" alt="Cloud Computing" class="blog-img">
+                    <h2>Machine Learning: Transforming the Future of Technology</h2>
+                    <p>Machine Learning (ML) is a groundbreaking field of artificial intelligence (AI) that empowers systems to learn and improve from experience without being explicitly programmed. It is at the heart of many technological advancements that have transformed industries and reshaped the way we interact with technology. By using algorithms to identify patterns in data, ML enables systems to make predictions, automate processes, and adapt to new scenarios with minimal human intervention.<span style="color: blueviolet;">see more...</span> </p>
+                </div>
+                <div class="blog-item" onclick="showBlog(4)">
+                    <img src="img/mechine.jpg" alt="Blockchain" class="blog-img">
+                    <h2>Shaping Tomorrow: The Exciting Future of Emerging Technologies</h2>
+                    <p>The future of technology promises groundbreaking innovations that are set to redefine the way we live, work, and interact with the world around us. As we move deeper into the 21st century, various emerging technologies such as Artificial Intelligence (AI), blockchain, quantum computing, and the Internet of Things (IoT) are leading the charge in transforming industries and enhancing our everyday experiences. Artificial Intelligence, particularly machine learning, is evolving rapidly, enabling machines to perform tasks with increasing autonomy and precision, revolutionizing fields like healthcare, finance, and customer service. <span style="color: blueviolet;">see more...</span></p>
+                </div>
+            </div>
+            <div class="blog-detail" id="blog-detail">
+                <button class="back-btn" onclick="goBack()">Back</button>
+                <div id="blog-content"></div>
+            </div>
+        </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>Edu Fuze</h3>
+                    <p>Empowering students with resources and tools for success.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/about/index.html">About Us</a></li>
+                        <li><a href="/products/index.html">Products</a></li>
+                        <li><a href="/contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/index.html">Cyber Security</a></li>
+                        <li><a href="/index.html">Web development</a></li>
+                        <li><a href="/index.html">Machine Learning</a></li>
+                        <li><a href="/index.html">Mobile App Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61565960182783"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@edu-fuze"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Edu Fuze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/common.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
